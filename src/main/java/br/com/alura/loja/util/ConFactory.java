@@ -1,4 +1,4 @@
-package br.com.alura.loja.factory;
+package br.com.alura.loja.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -6,11 +6,12 @@ import javax.persistence.Persistence;
 
 public class ConFactory implements AutoCloseable{
 
-	EntityManagerFactory factory = Persistence.createEntityManagerFactory("loja");
-	EntityManager em;
+	private static final EntityManagerFactory FACTORY = Persistence
+			.createEntityManagerFactory("loja");
+	private EntityManager em;
 	
 	public ConFactory() {
-		this.em = this.factory.createEntityManager();
+		this.em = FACTORY.createEntityManager();
 		this.em.getTransaction().begin();
 	}
 	
