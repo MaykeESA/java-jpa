@@ -15,17 +15,23 @@ public class Programa {
 		try (ConFactory conFactory = new ConFactory()) {
 			EntityManager em = conFactory.getEm();
 			
-			CategoriaDAO categoriaDao = new CategoriaDAO(em);
-			ProdutoDao produtoDao = new ProdutoDao(em);
+//			CategoriaDAO categoriaDao = new CategoriaDAO(em);
+//			ProdutoDao produtoDao = new ProdutoDao(em);
+//			
+//			Categoria categoria = new Categoria("Veículos");
+//			Produto produto = new Produto("Carro", 
+//									"Honda Civic SI", 
+//									new BigDecimal(70000), categoria);
+//			
+//			categoriaDao.salvar(categoria);
+//			produtoDao.salvar(produto);
 			
-			Categoria categoria = new Categoria("Veículos");
-			Produto produto = new Produto("Carro", 
-									"Mitsubishi Lancer Evo", 
-									new BigDecimal(230000), categoria);
+			Produto produto = em.find(Produto.class, 2l);
+			System.out.println(produto.getDescricao());
 			
-			categoriaDao.salvar(categoria);
-			produtoDao.salvar(produto);
-
+			
+			
+			
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

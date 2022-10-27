@@ -15,4 +15,14 @@ public class CategoriaDAO {
 	public void salvar(Categoria c) {
 		this.em.persist(c);
 	}
+	
+	public void atualizar(Categoria c) {
+		this.em.merge(c);
+	}
+	
+	public void remover(Categoria c) {
+		c = this.em.merge(c);
+		this.em.remove(c);
+	}
+	
 }
