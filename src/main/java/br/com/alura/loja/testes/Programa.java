@@ -1,6 +1,8 @@
 package br.com.alura.loja.testes;
 
 import java.math.BigDecimal;
+import java.util.List;
+
 import javax.persistence.EntityManager;
 
 import br.com.alura.loja.dao.CategoriaDAO;
@@ -15,21 +17,14 @@ public class Programa {
 		try (ConFactory conFactory = new ConFactory()) {
 			EntityManager em = conFactory.getEm();
 			
-//			CategoriaDAO categoriaDao = new CategoriaDAO(em);
-//			ProdutoDao produtoDao = new ProdutoDao(em);
-//			
-//			Categoria categoria = new Categoria("Veículos");
-//			Produto produto = new Produto("Carro", 
-//									"Honda Civic SI", 
-//									new BigDecimal(70000), categoria);
-//			
-//			categoriaDao.salvar(categoria);
-//			produtoDao.salvar(produto);
+			CategoriaDAO categoriaDao = new CategoriaDAO(em);
+			ProdutoDao produtoDao = new ProdutoDao(em);
+			 
+			List<Produto> listaP = produtoDao.buscarNomeCategoria("Moto");
 			
-			Produto produto = em.find(Produto.class, 2l);
-			System.out.println(produto.getDescricao());
-			
-			
+			System.out.println("X-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=X");
+			listaP.forEach(p -> System.out.println(p.getId() + " | " + p.getDescricao() + " | R$ " + p.getPreco()));
+			System.out.println("X-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=X");			
 			
 			
 		} catch (Exception e) {

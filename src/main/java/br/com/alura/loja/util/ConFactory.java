@@ -23,6 +23,6 @@ public class ConFactory implements AutoCloseable{
 	public void close() throws Exception {
 		this.em.getTransaction().commit();
 		this.em.close();
-		System.out.println("Conexão Fechada!");
+		System.out.println("\nConexão Fechada!");
 	}
 }

@@ -25,6 +25,10 @@ public class Categoria {
 	public String getNome() {
 		return nome;
 	}
+	
+	public Long getId() {
+		return id;
+	}
 
 	public void setNome(String nome) {
 		this.nome = nome;

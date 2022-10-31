@@ -23,7 +23,7 @@ public class Produto {
 	private BigDecimal preco;
 	private LocalDate dataCadastro = LocalDate.now();
 	@ManyToOne
-	private Categoria categoriaId;
+	private Categoria categoria;
 	
 	public Produto() {
 	}
@@ -32,7 +32,7 @@ public class Produto {
 		this.nome = nome;
 		this.descricao = desc;
 		this.preco = preco;
-		this.categoriaId = categoria;
+		this.categoria = categoria;
 	}
 	
 	public Long getId() {
